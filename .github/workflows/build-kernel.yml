@@ -249,6 +249,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         sed -i 's/^CONFIG_CC_STACKPROTECTOR_STRONG=y/# CONFIG_CC_STACKPROTECTOR_STRONG is not set/' arch/arm64/configs/camellia_in_eea_defconfig
+        sed -i 's/CLANG_FLAGS	+= -no-integrated-as/# ENABLE_CLANG_INTEGRATED_AS' Makefile
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$PATH
         export KBUILD_BUILD_HOST=Github-Action
         export AS=clang
