@@ -250,9 +250,6 @@ jobs:
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         find . -type f -name 'Makefile' -exec sed -i 's/\(^\|\s\)-Werror\(\s\|$\)/\1\2/g' {} +
         sed -i 's/^CONFIG_CC_STACKPROTECTOR_STRONG=y/# CONFIG_CC_STACKPROTECTOR_STRONG is not set/' arch/arm64/configs/camellia_in_eea_defconfig
-        mkdir -p arch/arm64/boot/dts/mediatek/camellia
-        wget https://raw.githubusercontent.com/LvzBxLzSyP/StoreEverything/refs/heads/main/cust.dtsi
-        mv cust.dtsi arch/arm64/boot/dts/mediatek/camellia/cust.dtsi
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang-aosp/bin:$PATH
         export KBUILD_BUILD_HOST=Github-Action
         export AS=clang
